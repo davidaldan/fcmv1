@@ -75,12 +75,12 @@ FcmTopicHelper::getTopicsByToken($token);
 
 You can send notification to specific user or to topics.
 
-### Send to unique token
+### Send to tokens
 ```php
 use Daldan26\Fcmv1\FcmNotification;
 
-$notif = new FcmNotification();
-$notif->setTitle("Title")->setBody("Message here")->setToken(["token_here"])->setClickAction("NEWS")->send();
+$notify = new FcmNotification();
+$notify->setTitle("Title")->setBody("Message here")->setToken(["token_here"])->setClickAction("NEWS")->send();
 
 ```
 
@@ -88,8 +88,8 @@ $notif->setTitle("Title")->setBody("Message here")->setToken(["token_here"])->se
 ```php
 use Daldan26\Fcmv1\FcmNotification;
 
-$notif = new FcmNotification();
-$notif->setTitle("Title")->setBody("Message here")->setTopic("general_topic")->setClickAction("NEWS")->send();
+$notify = new FcmNotification();
+$notify->setTitle("Title")->setBody("Message here")->setTopic("general_topic")->setClickAction("NEWS")->send();
 
 ```
 

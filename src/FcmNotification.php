@@ -254,7 +254,7 @@ class FcmNotification
 
             }
 
-            return $this->handleSend($encodedData);
+            return $this->handleSendTokens($array_notification);
  
         }
         
