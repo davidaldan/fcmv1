@@ -100,7 +100,7 @@ class FcmNotification
      */
     public function setAdditionalData($additionalData)
     {
-        $this->additionalData['data'] = $additionalData;
+        $this->additionalData['data'] = json_encode($additionalData);
 
         return $this;
     }
