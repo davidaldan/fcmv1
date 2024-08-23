@@ -208,7 +208,7 @@ class FcmNotification
                     "android" => [
                         "priority"      => $this->priority,
                         "sound"         => $this->sound,
-                        "click_action"  => $this->click_action ? $this->click_action : '',
+                        //"click_action"  => $this->click_action ? $this->click_action : '',
                         "channel_id"    => $this->channel,
                         "notification"  => [
                             "icon"  =>  $this->icon !=null ? $this->icon : '',
@@ -239,7 +239,7 @@ class FcmNotification
                         "android" => [
                             "priority"      => $this->priority,
                             "notification"  => [
-                                "click_action"  => $this->click_action ? $this->click_action : '',
+                                //"click_action"  => $this->click_action ? $this->click_action : '',
                                 "sound"         => $this->sound,
                                 "channel_id"    => $this->channel,
                                 "icon"          => $this->icon !=null ? $this->icon : '',
