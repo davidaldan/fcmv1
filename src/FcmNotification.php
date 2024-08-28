@@ -208,14 +208,25 @@ class FcmNotification
                     "android" => [
                         "priority"      => $this->priority,
                         "sound"         => $this->sound,
-                        //"click_action"  => $this->click_action ? $this->click_action : '',
                         "channel_id"    => $this->channel,
                         "notification"  => [
                             "icon"  =>  $this->icon !=null ? $this->icon : '',
                         ]
+                    ],
+                    "apns" => [
+                        "headers" => [
+                            "apns-priority" => "5"
+                        ],
+                        "payload" => [
+                            "aps" => [
+                                "sound" => $this->sound
+                            ]
+                        ]
                     ]
                 ]
             ];
+
+            //In android = //"click_action"  => $this->click_action ? $this->click_action : '',
 
             $encodedData = json_encode($data);
 
@@ -239,14 +250,25 @@ class FcmNotification
                         "android" => [
                             "priority"      => $this->priority,
                             "notification"  => [
-                                //"click_action"  => $this->click_action ? $this->click_action : '',
                                 "sound"         => $this->sound,
                                 "channel_id"    => $this->channel,
                                 "icon"          => $this->icon !=null ? $this->icon : '',
                             ]
+                        ],
+                        "apns" => [
+                            "headers" => [
+                                "apns-priority" => "5"
+                            ],
+                            "payload" => [
+                                "aps" => [
+                                    "sound" => $this->sound
+                                ]
+                            ]
                         ]
                     ]
                 ];
+
+                 //In android = //"click_action"  => $this->click_action ? $this->click_action : '',
 
                 $encodedData = json_encode($data);
 
@@ -279,11 +301,11 @@ class FcmNotification
                 "body"      => $encodedData,
             ]);
 
-            Log::info("[Notification] SENT", [$encodedData]);
+            //Log::info("[Notification] SENT", [$encodedData]);
 
             $response = $request->getBody();
 
-            Log::info("[Notification response] ", [$response]);
+            //Log::info("[Notification response] ", [$response]);
 
             return $response;
         } catch (Exception $e) {
@@ -317,11 +339,11 @@ class FcmNotification
                     "body"      => $encodedData,
                 ]);
 
-                Log::info("[Notification] SENT", [$encodedData]);
+                //Log::info("[Notification] SENT", [$encodedData]);
 
                 $response = $request->getBody();
 
-                Log::info("[Notification response] ", [$response]);
+                //Log::info("[Notification response] ", [$response]);
 
                 array_push($array_response, $response);
 
