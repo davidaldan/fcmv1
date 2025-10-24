@@ -192,7 +192,15 @@ class FcmNotification
     private function prepareSend()
     {
 
-        $extra_data = array_merge($this->additionalData, $this->notification_foreground);
+        $extra_data = array_merge(
+            $this->additionalData,
+            $this->notification_foreground,
+            [
+                'sound'         => $this->sound,
+                'channel_id'    => $this->channel
+            ]
+        );
+        //$extra_data = array_merge($this->additionalData, $this->notification_foreground);
 
         if (isset($this->topic)) {
             
@@ -215,7 +223,7 @@ class FcmNotification
                     ],
                     "apns" => [
                         "headers" => [
-                            "apns-priority" => "5"
+                            "apns-priority" => "10"
                         ],
                         "payload" => [
                             "aps" => [
